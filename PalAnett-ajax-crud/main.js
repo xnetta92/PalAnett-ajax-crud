@@ -27,8 +27,10 @@ function handleFormSubmit(event) {
    };
   if (id == "") {
     addEmployee(employee);
+    console.log(employee);
   } else {
     updateEmployee(id, employee);
+    console.log(employee);  
   }
 }
 
@@ -93,8 +95,8 @@ function listEmployee() {
       const actionsTableData = document.createElement("td");
       const updateButton = document.createElement("button");
       const deleteButton = document.createElement("button");
-      updateButton.textContent = "Módosít";
-      deleteButton.textContent = "Törlés";
+      updateButton.textContent = "Edit";
+      deleteButton.textContent = "Delete";
       updateButton.addEventListener("click", () => fillUpdateForm(employee.id));
       deleteButton.addEventListener("click", () => deleteEmployee(employee.id));
       actionsTableData.appendChild(updateButton)
@@ -114,6 +116,7 @@ function listEmployee() {
       tableRow.appendChild(addressTableData);
       tableRow.appendChild(salalryTableData);
       tableRow.appendChild(birthdateTableData);
+      tableRow.appendChild(actionsTableData);
       employeeData.appendChild(tableRow);
     })
   }); 

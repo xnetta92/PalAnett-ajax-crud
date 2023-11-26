@@ -1,78 +1,88 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app">
-      <form id="employeeForm">
-        <input type="hidden" id="id">
-        <div>
-          <label for="name">Name</label>
-          <input type="text" id="name" required>
-        </div>
-        <div>
-          <label for="email">E-mail</label>
-          <input type="email" id="email" required>
-        </div>
-        <div>
-          <label for="title">Job title</label>
-          <select name="title" id="title" required>
-            <option value="Fullstack Engineer">Fullstack Engineer</option>
-            <option value="Project Manager">Project Manager</option>
-            <option value="CFO">CFO</option>
-            <option value="CEO">CEO</option>
-            <option value="CMO">CMO</option>
-            <option value="Support Specialist">Support Specialist</option>
-            <option value="Data Analyst">Data Analyst</option>
-            <option value="Product Manager">Product Manager</option>
-            <option value="	Customer Support Team Lead">	Customer Support Team Lead</option>
-            <option value="IT Manager">IT Manager</option>
-            <option value="Database Manager">Database Manager</option>
-            <option value="Fraud Investigator">Fraud Investigator</option>
-          </select>
-        </div>
-        <div>
-          <label for="address">Address</label>
-          <input type="text" id="address" required>
-        </div>
-        <div>
-          <label for="salary">Salary[$/mo]</label>
-          <input type="number" id="salary" required>
-        </div>
-        <div>
-          <label for="birthdate">Birthdate</label>
-          <input type="date" id="birthdate" required>
-        </div>
-        <button type="submit" id="submitButton">Elküld</button>
-        <button type="submit" id="updateButton" class="hide">Módosít</button>
-        <button type="reset" id="resetButton">Mégse</button>
 
-      </form>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+</head>
 
+<body>
+  <div id="app">
+    <form id="employeeForm">
+      <input type="hidden" id="id">
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" required>
+      </div>
+      <div>
+        <label for="email">E-mail</label>
+        <input type="email" id="email" required>
+      </div>
+      <div>
+        <label for="title">Job title</label>
+        <select name="title" id="title" required>
+          <option value="Fullstack Engineer">Fullstack Engineer</option>
+          <option value="Project Manager">Project Manager</option>
+          <option value="CFO">CFO</option>
+          <option value="CEO">CEO</option>
+          <option value="CMO">CMO</option>
+          <option value="Support Specialist">Support Specialist</option>
+          <option value="Data Analyst">Data Analyst</option>
+          <option value="Product Manager">Product Manager</option>
+          <option value="	Customer Support Team Lead"> Customer Support Team Lead</option>
+          <option value="IT Manager">IT Manager</option>
+          <option value="Database Manager">Database Manager</option>
+          <option value="Fraud Investigator">Fraud Investigator</option>
+        </select>
+      </div>
+      <div>
+        <label for="address">Address</label>
+        <input type="text" id="address" required>
+      </div>
+      <div>
+        <label for="salalry">Salary[$/mo]</label>
+        <input type="number" id="salalry" required>
+      </div>
+      <div>
+        <label for="birthdate">Birthdate</label>
+        <input type="datetime" id="birthdate" required>
+      </div>
+      <button type="submit" id="submitButton">Elküld</button>
+      <button type="submit" id="updateButton" class="hide">Módosít</button>
+      <button type="reset" id="resetButton">Mégse</button>
 
-      <table>
-        <thead>
-          <tr>
-            <td>#</td>
-            <td>Name</td>
-            <td>E-mail</td>
-            <td>Job title</td>
-            <td>Address</td>
-            <td>Salary [$/mo]</td>
-            <td>Birthdate</td>
-          </tr>
-        </thead>
-        <tbody id="employeeData">
-
-        </tbody>
-      </table>
+    </form>
 
 
-    </div>
-    <script type="module" src="/main.js"></script>
-  </body>
+    <table>
+      <thead>
+        <tr>
+          <td>#</td>
+          <td>Name</td>
+          <td>E-mail</td>
+          <td>Job title</td>
+          <td>Address</td>
+          <td>Salary [$/mo]</td>
+          <td>Birthdate</td>
+          <td>Edit/Delete</td>
+        </tr>
+      </thead>
+      <tbody id="employeeData">
+
+      </tbody>
+    </table>
+
+
+  </div>
+  <script type="module" src="/main.js"></script>
+</body>
+
 </html>
