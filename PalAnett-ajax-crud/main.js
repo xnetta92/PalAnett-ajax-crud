@@ -4,12 +4,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const employeeForm = document.getElementById("employeeForm");
   const resetButton = document.getElementById("resetButton");
   resetButton.addEventListener("click", resetForm);
-  employeeForm.addEventListener("submit", addEmployee)
+  employeeForm.addEventListener("submit", handleFormSubmit)
   listEmployees();
 });
 
-async function addEmployee(event) {
-   event.preventDefault();
+function handleFormSubmit(event) {
+  event.preventDefault();
+  const id = document.getElementById("id").value;
    const name = document.getElementById("name").value;
    const email = document.getElementById("email").value;
    const title = document.getElementById("title").value;
@@ -24,6 +25,28 @@ async function addEmployee(event) {
     salalry: salalry,
     birthdate: birthdate
    };
+  if (id == "") {
+    addEmployee(employee);
+  } else {
+    updateEmployee(id, employee);
+  }
+}
+
+async function updateEmployee(id, employee) {
+  const response = await fetch(`${api_url}/${id}`, {
+    method: "PATCH",
+    body: JSON.stringify(employee),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  });
+  if (response.ok) {
+    resetForm();
+    listPeople();
+  }
+}
+
+async function addEmployee(employee) {
    console.log(employee);
    console.log(JSON.stringify(employee));
   
