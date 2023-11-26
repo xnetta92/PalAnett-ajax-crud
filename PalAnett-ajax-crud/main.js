@@ -96,7 +96,7 @@ function listEmployee() {
       updateButton.textContent = "Módosít";
       deleteButton.textContent = "Törlés";
       updateButton.addEventListener("click", () => fillUpdateForm(employee.id));
-      deleteButton.addEventListener("click", () => deletePerson(employee.id));
+      deleteButton.addEventListener("click", () => deleteEmployee(employee.id));
       actionsTableData.appendChild(updateButton)
       actionsTableData.appendChild(deleteButton)
 
@@ -134,7 +134,7 @@ async function fillUpdateForm(id) {
     alert("Hiba történt az adatok lekérése során");
     return;
   }
-  const person = await response.json();
+  const employee = await response.json();
   document.getElementById("id").value = employee.id;
   document.getElementById("name").value = employee.name;
   document.getElementById("email").value = employee.email;
