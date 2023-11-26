@@ -42,7 +42,7 @@ async function updateEmployee(id, employee) {
   });
   if (response.ok) {
     resetForm();
-    listPeople();
+    listEmployee();
   }
 }
 
