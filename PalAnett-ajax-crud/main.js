@@ -40,6 +40,16 @@ async function addEmployee(event) {
   }
 }
 
+function resetForm() {
+  document.getElementById('id').value = "";
+  document.getElementById('name').value = "";
+  document.getElementById('email').value = "";
+  document.getElementById('title').value = "";
+  document.getElementById('address').value = "";
+  document.getElementById('salalry').value = "";
+  document.getElementById('birthdate').value = "";
+}
+
 function listEmployees() {
   const employeeData = document.getElementById("employeeData");
   fetch(api_url).then(httpResponse => httpResponse.json())
