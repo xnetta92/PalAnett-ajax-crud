@@ -1,11 +1,11 @@
-const api_url = "https://retoolapi.dev/Nag12s/employees"
+const api_url = "https://retoolapi.dev/JEUtcz/employee"
 
 document.addEventListener("DOMContentLoaded", () => {
   const employeeForm = document.getElementById("employeeForm");
   const resetButton = document.getElementById("resetButton");
   resetButton.addEventListener("click", resetForm);
   employeeForm.addEventListener("submit", handleFormSubmit)
-  listEmployees();
+  listEmployee();
 });
 
 function handleFormSubmit(event) {
@@ -58,7 +58,7 @@ async function addEmployee(employee) {
     }
   });
   if (response.ok) {
-    listEmployees();
+    listEmployee();
     resetForm();
   }
 }
@@ -75,7 +75,7 @@ function resetForm() {
   document.getElementById("submitButton").classList.remove('hide');
 }
 
-function listEmployees() {
+function listEmployee() {
   const employeeData = document.getElementById("employeeData");
   fetch(api_url).then(httpResponse => httpResponse.json())
   .then(responseBody => {
@@ -124,7 +124,7 @@ async function deleteEmployee(id) {
   console.log(response);
   console.log(await response.text());
   if (response.ok) {
-    listEmployees();
+    listEmployee();
   }
 }
 
