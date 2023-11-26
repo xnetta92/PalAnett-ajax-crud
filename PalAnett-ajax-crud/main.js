@@ -4,15 +4,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const employeeData = document.getElementById("employeeData");
   fetch(api_url).then(httpResponse => httpResponse.json())
   .then(responseBody => {
-    responseBody.forEach(employees => {
+    responseBody.forEach(person => {
       const tableRow =`<tr>
-      <td>${employees.id}</td>
-      <td>${employees.name}</td>
-      <td>${employees.email}</td>
-      <td>${employees.title}</td>
-      <td>${employees.address}</td>
-      <td>${employees.salary}</td>
-      <td>${employees.birthdate}</td>
+      <td>${person.id}</td>
+      <td>${person.name}</td>
+      <td>${person.email}</td>
+      <td>${person.title}</td>
+      <td>${person.address}</td>
+      <td>${person.salalry}</td>
+      <td>${person.birthdate}</td>
       </tr>`;
     })
   }); 
