@@ -73,8 +73,8 @@ function resetForm() {
   document.getElementById('address').value = "";
   document.getElementById('salalry').value = "";
   document.getElementById('birthdate').value = "";
-  document.getElementById("updateButton").classList.add('hide');
-  document.getElementById("submitButton").classList.remove('hide');
+  document.getElementById("updateButton").classList.add('d-none');
+  document.getElementById("submitButton").classList.remove('d-none');
 }
 
 function listEmployee() {
@@ -95,6 +95,8 @@ function listEmployee() {
       const actionsTableData = document.createElement("td");
       const updateButton = document.createElement("button");
       const deleteButton = document.createElement("button");
+      updateButton.classList.add('btn', 'btn-warning', 'm-2');
+      deleteButton.classList.add('btn', 'btn-danger', 'm-2');
       updateButton.textContent = "Edit";
       deleteButton.textContent = "Delete";
       updateButton.addEventListener("click", () => fillUpdateForm(employee.id));
@@ -118,6 +120,7 @@ function listEmployee() {
       tableRow.appendChild(birthdateTableData);
       tableRow.appendChild(actionsTableData);
       employeeData.appendChild(tableRow);
+      
     })
   }); 
 }
@@ -145,6 +148,7 @@ async function fillUpdateForm(id) {
   document.getElementById("address").value = employee.address;
   document.getElementById("salalry").value = employee.salalry;
   document.getElementById("birthdate").value = employee.birthdate;
-  document.getElementById("submitButton").classList.add('hide');
-  document.getElementById("updateButton").classList.remove('hide');
+  document.getElementById("submitButton").classList.add('d-none');
+  document.getElementById("updateButton").classList.remove('d-none');
+  
 }
