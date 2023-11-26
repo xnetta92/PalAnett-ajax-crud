@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   listEmployees();
 });
 
-function addEmployee(event) {
+async function addEmployee(event) {
    event.preventDefault();
    const name = document.getElementById("name").value;
    const email = document.getElementById("email").value;
