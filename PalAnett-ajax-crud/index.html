@@ -8,6 +8,50 @@
   </head>
   <body>
     <div id="app">
+      <form id="employeeForm">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" required>
+        </div>
+        <div>
+          <label for="email">E-mail</label>
+          <input type="email" id="email" required>
+        </div>
+        <div>
+          <label for="title">Job title</label>
+          <select name="title" id="title" required>
+            <option value="Fullstack Engineer">Fullstack Engineer</option>
+            <option value="Project Manager">Project Manager</option>
+            <option value="CFO">CFO</option>
+            <option value="CEO">CEO</option>
+            <option value="CMO">CMO</option>
+            <option value="Support Specialist">Support Specialist</option>
+            <option value="Data Analyst">Data Analyst</option>
+            <option value="Product Manager">Product Manager</option>
+            <option value="	Customer Support Team Lead">	Customer Support Team Lead</option>
+            <option value="IT Manager">IT Manager</option>
+            <option value="Database Manager">Database Manager</option>
+            <option value="Fraud Investigator">Fraud Investigator</option>
+          </select>
+        </div>
+        <div>
+          <label for="address">Address</label>
+          <input type="text" id="address" required>
+        </div>
+        <div>
+          <label for="salary">Salary[$/mo]</label>
+          <input type="number" id="salary" required>
+        </div>
+        <div>
+          <label for="birthdate">Birthdate</label>
+          <input type="date" id="birthdate" required>
+        </div>
+        <button type="submit">Elküld</button>
+        <button type="reset">Mégse</button>
+
+      </form>
+
+
       <table>
         <thead>
           <tr>
