@@ -71,6 +71,8 @@ function resetForm() {
   document.getElementById('address').value = "";
   document.getElementById('salalry').value = "";
   document.getElementById('birthdate').value = "";
+  document.getElementById("updateButton").classList.add('hide');
+  document.getElementById("submitButton").classList.remove('hide');
 }
 
 function listEmployees() {
@@ -87,6 +89,17 @@ function listEmployees() {
       const addressTableData = document.createElement("td");
       const salalryTableData = document.createElement("td");
       const birthdateTableData = document.createElement("td");
+
+      const actionsTableData = document.createElement("td");
+      const updateButton = document.createElement("button");
+      const deleteButton = document.createElement("button");
+      updateButton.textContent = "Módosít";
+      deleteButton.textContent = "Törlés";
+      updateButton.addEventListener("click", () => fillUpdateForm(employee.id));
+      deleteButton.addEventListener("click", () => deletePerson(employee.id));
+      actionsTableData.appendChild(updateButton)
+      actionsTableData.appendChild(deleteButton)
+
       idTableData.textContent = employee.id;
       nameTableData.textContent = employee.name;
       emailTableData.textContent = employee.email;
@@ -104,4 +117,31 @@ function listEmployees() {
       employeeData.appendChild(tableRow);
     })
   }); 
+}
+
+async function deleteEmployee(id) {
+  const response = await fetch(`${api_url}/${id}`, { method: "DELETE" });
+  console.log(response);
+  console.log(await response.text());
+  if (response.ok) {
+    listEmployees();
+  }
+}
+
+async function fillUpdateForm(id) {
+  const response = await fetch(`${api_url}/${id}`);
+  if (!response.ok) {
+    alert("Hiba történt az adatok lekérése során");
+    return;
+  }
+  const person = await response.json();
+  document.getElementById("id").value = employee.id;
+  document.getElementById("name").value = employee.name;
+  document.getElementById("email").value = employee.email;
+  document.getElementById("title").value = employee.title;
+  document.getElementById("address").value = employee.address;
+  document.getElementById("salalry").value = employee.salalry;
+  document.getElementById("birthdate").value = employee.birthdate;
+  document.getElementById("submitButton").classList.add('hide');
+  document.getElementById("updateButton").classList.remove('hide');
 }
