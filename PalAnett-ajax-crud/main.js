@@ -1,7 +1,7 @@
 const api_url = "https://retoolapi.dev/Nag12s/employees"
 
 document.addEventListener("DOMContentLoaded", () => {
-  const employeeForm = document.getElementById(employeeForm);
+  const employeeForm = document.getElementById("employeeForm");
   const resetButton = document.getElementById("resetButton");
   resetButton.addEventListener("click", resetForm);
   employeeForm.addEventListener("submit", addEmployee)
