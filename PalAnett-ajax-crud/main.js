@@ -2,6 +2,8 @@ const api_url = "https://retoolapi.dev/Nag12s/employees"
 
 document.addEventListener("DOMContentLoaded", () => {
   const employeeForm = document.getElementById(employeeForm);
+  const resetButton = document.getElementById("resetButton");
+  resetButton.addEventListener("click", resetForm);
   employeeForm.addEventListener("submit", addEmployee)
   listEmployees();
 });
@@ -22,7 +24,20 @@ function addEmployee(event) {
     salalry: salalry,
     birthdate: birthdate
    };
-   
+   console.log(employee);
+   console.log(JSON.stringify(employee));
+  
+  const response = await fetch(api_url, {
+    method: "POST",
+    body: JSON.stringify(employee),
+    headers: {
+    "Content-Type": "application/json" 
+    }
+  });
+  if (response.ok) {
+    listEmployees();
+    resetForm();
+  }
 }
 
 function listEmployees() {
